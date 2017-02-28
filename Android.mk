@@ -14,9 +14,9 @@ endif
 
 BDROID_DIR := $(TOP_DIR)system/bt
 
-ifeq ($(strip $(USE_BLUETOOTH_BCM4343)),true)
+#ifeq ($(strip $(USE_BLUETOOTH_BCM4343)),true)
 LOCAL_CFLAGS += -DUSE_BLUETOOTH_BCM4343
-endif
+#endif
 
 LOCAL_SRC_FILES := \
         src/bt_vendor_brcm.c \
@@ -57,6 +57,9 @@ ifeq ($(TARGET_PRODUCT), sabresd_6dq)
 endif
 ifeq ($(TARGET_PRODUCT), sabresd_7d)
     include $(LOCAL_PATH)/conf/fsl/sabresd_7d/Android.mk
+endif
+ifeq ($(TARGET_PRODUCT), evk_7ulp)
+    include $(LOCAL_PATH)/conf/fsl/evk_7ulp/Android.mk
 endif
 ifeq ($(TARGET_PRODUCT), full_maguro)
     include $(LOCAL_PATH)/conf/samsung/maguro/Android.mk
